@@ -34,6 +34,7 @@ RED     = (255,000,000)
 GREEN   = (000,255,000)
 BLUE    = (000,000,255)
 
+
 class Tetromino(object):
     def __init__(self, colour):
         self.colour = colour
@@ -53,6 +54,7 @@ class Tetromino(object):
 
     def collied(self, matrix):
         pass
+
 
 class TetrominoI(Tetromino):
     def __init__(self, colour):
@@ -93,15 +95,14 @@ class TetrominoI(Tetromino):
                 return True
         return False
 
+
 screen = pygame.display.set_mode((X, Y))
-clock = pygame.time.Clock()
 colours = [WHITE, RED, GREEN, BLUE]
 active = None
 tetrominos = []
 matrix = []
 
 while True:
-    clock.tick(30)
     print matrix
 
     screen.fill(BLACK)
@@ -130,4 +131,4 @@ while True:
     active.move(matrix, direction)
     active.draw(screen)
     pygame.display.flip()
-
+    pygame.time.wait(100)
